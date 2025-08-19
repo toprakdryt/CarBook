@@ -1,5 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// BU SATIRI EKLE
+builder.Services.AddHttpClient();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
