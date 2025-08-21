@@ -1,13 +1,12 @@
-﻿using MediatR;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarBook.Application.Features.Mediator.Commands.ServiceCommands
+namespace UdemyCarBook.Dto.ServiceDtos
 {
-    public class UpdateServiceCommand:IRequest
+    public class ResultServiceDto
     {
         public int ServiceID { get; set; }
         public string Title { get; set; }

@@ -11,7 +11,7 @@ namespace UdemyCarBook.WebApi.Controllers
     [ApiController]
     public class TestimonialsController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly IMediator _mediator;   
         public TestimonialsController(IMediator mediator)
         {
             _mediator = mediator;
