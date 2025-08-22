@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
 
-namespace CarBook.Application.Features.Mediator.Handlers.FooterAddressHandlers.FooterAddressHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.FooterAddressHandlers
 {
     public class UpdateFooterAddressCommandHandler : IRequestHandler<UpdateFooterAddressCommand>
     {

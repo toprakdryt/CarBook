@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
 
-namespace CarBook.Application.Features.CQRS.Handlers.ContackHandlers
+namespace CarBook.Application.Features.CQRS.Handlers.ContactHandlers
 {
     public class RemoveContactCommandHandler
     {

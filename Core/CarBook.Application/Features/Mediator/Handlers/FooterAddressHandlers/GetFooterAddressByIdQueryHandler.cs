@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
 using UdemyCarBook.Application.Features.Mediator.Queries.FooterAddressQueries;
 
-namespace CarBook.Application.Features.Mediator.Handlers.FooterAddressHandlers.FooterAddressHandlers
+namespace CarBook.Application.Features.Mediator.Handlers.FooterAddressHandlers
 {
     public class GetFooterAddressByIdQueryHandler : IRequestHandler<GetFooterAddressByIdQuery, GetFooterAddressByIdQueryResult>
     {

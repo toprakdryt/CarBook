@@ -1,5 +1,4 @@
-﻿using CarBook.Application.Features.CQRS.Commands.BrandCommands;
-using CarBook.Application.Features.CQRS.Commands.ContactCommands;
+﻿using CarBook.Application.Features.CQRS.Commands.ContactCommands;
 using CarBook.Application.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
 
-namespace CarBook.Application.Features.CQRS.Handlers.ContackHandlers
+namespace CarBook.Application.Features.CQRS.Handlers.ContactHandlers
 {
     public class UpdateContactCommandHandler
     {
