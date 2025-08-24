@@ -193,7 +193,7 @@ namespace CarBook.Persistance.Migrations
                     CarID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BrandID = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    BrandID1 = table.Column<int>(type: "int", nullable: false),
+                    
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CoverImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Km = table.Column<int>(type: "int", nullable: false),
@@ -207,8 +207,8 @@ namespace CarBook.Persistance.Migrations
                 {
                     table.PrimaryKey("PK_Cars", x => x.CarID);
                     table.ForeignKey(
-                        name: "FK_Cars_Brands_BrandID1",
-                        column: x => x.BrandID1,
+                        name: "FK_Cars_Brands_BrandID",
+                        column: x => x.BrandID,
                         principalTable: "Brands",
                         principalColumn: "BrandID",
                         onDelete: ReferentialAction.Cascade);
@@ -315,10 +315,6 @@ namespace CarBook.Persistance.Migrations
                 table: "CarPricings",
                 column: "PricingID");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_Cars_BrandID1",
-                table: "Cars",
-                column: "BrandID1");
         }
 
         /// <inheritdoc />

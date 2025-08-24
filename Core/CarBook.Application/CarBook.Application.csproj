@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Features\CQRS\Results\CarResults\GetLast5CarsWithBrandQueryResult.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\UdemyCarbook.Domain\UdemyCarbook.Domain.csproj" />
   </ItemGroup>
 

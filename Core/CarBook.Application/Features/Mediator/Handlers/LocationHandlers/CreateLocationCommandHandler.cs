@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
+using UdemyCarBook.Domain.Entities;
 
-namespace CarBook.Application.Features.Mediator.Handlers.LocationHandlers
+namespace UdemyCarBook.Application.Features.Mediator.Handlers.LocationHandlers
 {
     public class CreateLocationCommandHandler : IRequestHandler<CreateLocationCommand>
     {

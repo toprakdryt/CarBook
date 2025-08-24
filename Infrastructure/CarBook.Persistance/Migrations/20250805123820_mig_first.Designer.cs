@@ -112,8 +112,7 @@ namespace CarBook.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("BrandID1")
-                        .HasColumnType("int");
+                    
 
                     b.Property<string>("CoverImageURL")
                         .IsRequired()
@@ -142,7 +141,7 @@ namespace CarBook.Persistance.Migrations
 
                     b.HasKey("CarID");
 
-                    b.HasIndex("BrandID1");
+                    b.HasIndex("BrandID");
 
                     b.ToTable("Cars");
                 });
@@ -441,7 +440,7 @@ namespace CarBook.Persistance.Migrations
                 {
                     b.HasOne("UdemyCarbook.Domain.Entities.Brand", "Brand")
                         .WithMany("Cars")
-                        .HasForeignKey("BrandID1")
+                        .HasForeignKey("BrandID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

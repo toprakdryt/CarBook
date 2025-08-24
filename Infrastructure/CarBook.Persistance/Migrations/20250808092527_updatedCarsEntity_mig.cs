@@ -11,15 +11,15 @@ namespace CarBook.Persistance.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Cars_Brands_BrandID1",
+                name: "FK_Cars_Brands_BrandID",
                 table: "Cars");
 
             migrationBuilder.DropIndex(
-                name: "IX_Cars_BrandID1",
+                name: "IX_Cars_BrandID",
                 table: "Cars");
 
             migrationBuilder.DropColumn(
-                name: "BrandID1",
+                name: "BrandID",
                 table: "Cars");
 
             migrationBuilder.AlterColumn<int>(
@@ -44,44 +44,6 @@ namespace CarBook.Persistance.Migrations
                 onDelete: ReferentialAction.Cascade);
         }
 
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Cars_Brands_BrandID",
-                table: "Cars");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Cars_BrandID",
-                table: "Cars");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "BrandID",
-                table: "Cars",
-                type: "nvarchar(max)",
-                nullable: false,
-                oldClrType: typeof(int),
-                oldType: "int");
-
-            migrationBuilder.AddColumn<int>(
-                name: "BrandID1",
-                table: "Cars",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Cars_BrandID1",
-                table: "Cars",
-                column: "BrandID1");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Cars_Brands_BrandID1",
-                table: "Cars",
-                column: "BrandID1",
-                principalTable: "Brands",
-                principalColumn: "BrandID",
-                onDelete: ReferentialAction.Cascade);
-        }
+       
     }
 }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UdemyCarbook.Domain.Entities;
+using UdemyCarBook.Domain.Entities;
 
 namespace CarBook.Persistance.Context
 {
@@ -12,7 +13,11 @@ namespace CarBook.Persistance.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
+            //EVDE BU DESKTOP-ODRGO5F\SQLEXPRESS
+            //STAJDA BU BILGIISLEM3
+
+            optionsBuilder.UseSqlServer("Server=DESKTOP-ODRGO5F\\SQLEXPRESS;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
+            //optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
         }
         public DbSet<About> About { get; set; }
         public DbSet<Banner> Banners { get; set; }
@@ -30,8 +35,12 @@ namespace CarBook.Persistance.Context
         public DbSet<Service> Services { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
-        
-        
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+
+
+
+
 
 
 
