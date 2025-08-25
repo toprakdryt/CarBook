@@ -109,8 +109,6 @@ namespace CarBook.Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogID"));
 
-                    
-
                     b.Property<int>("AuthorID")
                         .HasColumnType("int");
 
@@ -209,11 +207,7 @@ namespace CarBook.Persistance.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarDescriptionID"));
 
-                    b.Property<string>("CarID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CarID1")
+                    b.Property<int>("CarID")
                         .HasColumnType("int");
 
                     b.Property<string>("Details")
@@ -222,7 +216,7 @@ namespace CarBook.Persistance.Migrations
 
                     b.HasKey("CarDescriptionID");
 
-                    b.HasIndex("CarID1");
+                    b.HasIndex("CarID");
 
                     b.ToTable("CarDescriptions");
                 });
@@ -264,11 +258,7 @@ namespace CarBook.Persistance.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<string>("CarID")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CarID1")
+                    b.Property<int>("CarID")
                         .HasColumnType("int");
 
                     b.Property<int>("PricingID")
@@ -276,7 +266,7 @@ namespace CarBook.Persistance.Migrations
 
                     b.HasKey("CarPricingID");
 
-                    b.HasIndex("CarID1");
+                    b.HasIndex("CarID");
 
                     b.HasIndex("PricingID");
 
@@ -439,11 +429,11 @@ namespace CarBook.Persistance.Migrations
 
             modelBuilder.Entity("UdemyCarbook.Domain.Entities.SocialMedia", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("SocialMediaID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SocialMediaID"));
 
                     b.Property<string>("Icon")
                         .IsRequired()
@@ -457,7 +447,7 @@ namespace CarBook.Persistance.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("SocialMediaID");
 
                     b.ToTable("SocialMedias");
                 });
@@ -525,7 +515,7 @@ namespace CarBook.Persistance.Migrations
                 {
                     b.HasOne("UdemyCarbook.Domain.Entities.Car", "Car")
                         .WithMany("CarDescriptions")
-                        .HasForeignKey("CarID1")
+                        .HasForeignKey("CarID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -555,7 +545,7 @@ namespace CarBook.Persistance.Migrations
                 {
                     b.HasOne("UdemyCarbook.Domain.Entities.Car", "Car")
                         .WithMany("CarPricing")
-                        .HasForeignKey("CarID1")
+                        .HasForeignKey("CarID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

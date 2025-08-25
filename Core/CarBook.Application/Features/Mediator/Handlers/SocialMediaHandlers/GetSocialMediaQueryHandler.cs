@@ -26,7 +26,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.LocationHandlers
             return values.Select(x => new GetSocialMediaQueryResult
             {
                 Name = x.Name,
-                SocialMediaID = x.ID,
+                SocialMediaID = x.SocialMediaID,
                 URL=x.URL,
                 Icon = x.Icon
             }).ToList();

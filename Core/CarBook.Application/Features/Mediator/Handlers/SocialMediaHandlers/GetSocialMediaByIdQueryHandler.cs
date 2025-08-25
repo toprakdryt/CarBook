@@ -26,7 +26,7 @@ namespace CarBook.Application.Features.Mediator.Handlers.SocialMediaHandlers
             var values = await _repository.GetByIdAsync(request.Id);
             return new GetSocialMediaByIdQueryResult
             {
-                SocialMediaID = values.ID,
+                SocialMediaID = values.SocialMediaID,
                 Name = values.Name,
                 URL = values.URL,
                 Icon = values.Icon
