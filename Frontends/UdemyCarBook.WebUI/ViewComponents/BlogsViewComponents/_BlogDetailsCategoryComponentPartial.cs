@@ -4,11 +4,12 @@ using UdemyCarBook.Dto.CategoryDtos;
 
 namespace CarBook.WebUI.ViewComponents.BlogViewComponents
 {
-    public class _BlogDetailsCategoryComponentsPartial : ViewComponent
+
+    public class _BlogDetailsCategoryComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public _BlogDetailsCategoryComponentsPartial(IHttpClientFactory httpClientFactory)
+        public _BlogDetailsCategoryComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

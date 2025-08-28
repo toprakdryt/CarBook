@@ -4,7 +4,7 @@ using UdemyCarBook.Dto.BlogDtos;
 using UdemyCarBook.Dto.TagCloudDtos;
 
 namespace UdemyCarBook.WebUI.ViewComponents.BlogsViewComponents
-{
+{//KULLANILMAYAN 
     public class _BlogDetailsTagCloudComponentPartial:ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
