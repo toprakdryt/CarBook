@@ -1,5 +1,6 @@
 ﻿using CarBook.Application.Features.RepositoryPattern;
 using CarBook.Persistance.Context;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,14 @@ namespace CarBook.Persistance.Repositories.CommentRepositories
 
         public List<Comment> GetAll()
         {
-           return _context.Comments.ToList();
+           return _context.Comments.Select(x=> new Comment
+           {
+              CommentID = x.CommentID,
+              BlogID = x.BlogID,
+              CreatedDate = x.CreatedDate,
+              Desciption = x.Desciption,
+              Name = x.Name,
+           }).ToList();
         }
 
         public Comment GetById(int id)
@@ -34,9 +42,10 @@ namespace CarBook.Persistance.Repositories.CommentRepositories
             return _context.Comments.Find(id);
         }
 
-        public void Remove(Comment entity)
+        public void Remove(Comment entity)  
         {
-            _context.Comments.Remove(entity);
+            var value = _context.Comments.Find(entity.CommentID);
+            _context.Comments.Remove(value);
             _context.SaveChanges();
         }
 

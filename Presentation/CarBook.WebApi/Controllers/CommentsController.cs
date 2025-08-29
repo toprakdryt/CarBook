@@ -1,6 +1,7 @@
 ﻿using CarBook.Application.Features.RepositoryPattern;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query;
 using UdemyCarbook.Domain.Entities;
 
 namespace CarBook.WebApi.Controllers
@@ -22,5 +23,34 @@ namespace CarBook.WebApi.Controllers
             var values = _commentsRepository.GetAll();
             return Ok(values);
         }
+
+        [HttpPost]
+        public IActionResult CreateComment(Comment comment)
+        {
+            _commentsRepository.Create(comment);
+            return Ok("Yorum Başarı ile Eklendi");
+        }
+        [HttpDelete]
+        public IActionResult RemoveComment(int id)
+        {
+            var value = _commentsRepository.GetById(id);
+            _commentsRepository.Remove(value);
+            return Ok("Yorum Başarı ile Silindi");
+        }
+        [HttpPut]
+        public IActionResult UpdateComment(Comment comment)
+        {
+            _commentsRepository.Update(comment);
+            return Ok("Yorum Başarı ile Silindi");
+        }
+        [HttpGet("{id}")]
+        public IActionResult GetComment(int id)
+        {
+            var value = _commentsRepository.GetById(id);
+            return Ok(value);
+        }
+
+
+
     }
 }
