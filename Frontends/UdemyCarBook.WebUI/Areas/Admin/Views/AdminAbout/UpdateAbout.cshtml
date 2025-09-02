@@ -1,0 +1,49 @@
+﻿﻿
+@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Hakkımızda Veri Güncelleme Alanı </h4>
+                        <p class="card-subtitle mb-4">
+                            Ana sayfanın ve Hakkımızda sayfasının "Hakkımda" alanında bulunan bilgileri aşağıdan düzenleyebilirsiniz.
+                            Tema bütünlüğünü bozulmaması adına lütfen 1 tane veri girişi yapınız.
+                            Aksi durumlarda tema bütünlüğü bozulacaktır.
+                        </p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="aboutID" />
+                            <div class="form-group">
+                                <label for="exampleInputTitle">Başlık</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="title" placeholder="Başlığı Giriniz">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputDescription">Açıklama</label>
+                                <input type="text" class="form-control" id="exampleInputDescription" asp-for="description" placeholder="Açıklamayı Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputImageUrl">Fotoğraf Linki</label>
+                                <input type="text" class="form-control" id="exampleInputImageUrl" asp-for="imageURL" placeholder="Kapak Fotoğraf Linkini Gİriniz">
+                                <textarea rows="5" asp-for="description" class="form-control" placeholder="Açıklamayı Giriniz"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-success waves-effect waves-light">Hakkımda Bilgisini Güncelle</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
