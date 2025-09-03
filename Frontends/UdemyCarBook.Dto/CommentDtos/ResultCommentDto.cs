@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace UdemyCarBook.Dto.CommentDtos
 {
-    internal class CommentDto
+    public class ResultCommentDto
     {
+        public int CommentID { get; set; }
+        public string Name { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string Desciption { get; set; }
+        public int BlogID { get; set; }
     }
 }

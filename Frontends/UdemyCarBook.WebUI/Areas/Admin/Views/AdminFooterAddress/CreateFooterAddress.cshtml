@@ -1,0 +1,52 @@
+﻿﻿
+@model CreateFooterAddressDto
+
+@{
+    ViewData["Title"] = "CreateFooterAddress";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Yeni Addres Bilgisi Girişi</h4>
+                        <p class="card-subtitle mb-4">
+                           Adres alanına ait bilgileri aşağıdaki panelde girebilirsiniz.Tema bütünlüğünün bozulmaması adına lütfen sadece bir tane veri girişi
+                           yapınız mevcutta verinizi düzenleyiniz.Yeni veri girişi yaparsanız öncekini siliniz.
+                        </p>
+
+                        <form method="post">
+
+                            <div class="form-group">
+                                <label for="exampleInputAddress">Adres</label>
+                                <input type="text" class="form-control" id="exampleInputAddress" asp-for="Address" placeholder="Adres Bilgisini Giriniz">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputDescription">Açıklama</label>
+                                <input type="text" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklamayı Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPhone">Telefon Numarası</label>
+                                <input type="tel" class="form-control" id="exampleInputPhone" asp-for="Phone" placeholder="Telefon Numarasını Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEMail">EMail Adresi</label>
+                                <input type="text" class="form-control" id="exampleInputEmail" asp-for="Email" placeholder="E Posta Adresinizi Giriniz">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Adres Bilgisini Kaydet</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,8 +16,8 @@ namespace CarBook.Persistance.Context
             //EVDE BU DESKTOP-ODRGO5F\\SQLEXPRESS
             //STAJDA BU BILGIISLEM3
 
-           optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;Integrated Security=True;TrustServerCertificate=True;");
-            //optionsBuilder.UseSqlServer("Server=DESKTOP-ODRGO5F\\SQLEXPRESS;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
+           //optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;Integrated Security=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-ODRGO5F\\SQLEXPRESS;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
         }
         public DbSet<About> About { get; set; }
         public DbSet<Banner> Banners { get; set; }
@@ -39,6 +39,8 @@ namespace CarBook.Persistance.Context
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<TagCloud> TagClouds { get; set; }
         public DbSet<Comment> Comments  { get; set; }
+        public DbSet<RentACar> RentACars { get; set; }
+      
 
 
 

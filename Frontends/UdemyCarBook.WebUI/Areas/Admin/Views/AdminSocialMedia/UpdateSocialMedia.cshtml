@@ -1,0 +1,50 @@
+﻿﻿
+@model UpdateSocialMediaDto
+
+@{
+    ViewData["Title"] = "CreateSocialMedia";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <h4 class="card-title">Sosyal Medya Veri Düzenleme Sayfası</h4>
+                        <p class="card-subtitle mb-4">
+                            Sosyal medya hesaplarınıza ait veri düzenlemelerini buradan yapabilirsiniz.                
+                            İkonlarla ilgili bilgilere ikon listesi üzerinden ulaşabilirsiniz.
+                        </p>
+
+                        <form method="post">
+                            <input type="hidden" asp-for="SocialMediaID" />
+                            <div class="form-group">
+                                <label for="exampleInputName">Sosyal Medya Başlığı</label>
+                                <input type="text" class="form-control" id="exampleInputName" asp-for="Name" placeholder="Sosyal Medya Başlığını">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputUrl">URL</label>
+                                <input type="text" class="form-control" id="exampleInputUrl" asp-for="URL" placeholder="Sosyal Medya Sayfanızın URL Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputIconURL">Sosyal Medya Ikon Linki</label>
+                                <input type="text" class="form-control" id="exampleInputIconURL" asp-for="Icon" placeholder="Sosyal Medya İkon Bilgisini Gİriniz">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Sosyal Medya Bilgisini Gİriniz</button>
+                        </form>
+
+                    </div> <!-- end card-body-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
