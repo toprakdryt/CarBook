@@ -4,9 +4,11 @@ namespace UdemyCarBook.WebUI.ViewComponents.RentACarFilterComponents
 {
     public class _RentACarFilterComponentPartial:ViewComponent
     {
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string v)
         {
-           return View();
+            v = "aaaa";
+            TempData["value"] = v;
+            return View();
         }
     }
 }
