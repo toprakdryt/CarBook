@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Carbook.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,8 @@ namespace CarBook.Persistance.Context
             //EVDE BU DESKTOP-ODRGO5F\\SQLEXPRESS
             //STAJDA BU BILGIISLEM3
 
-           //optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;Integrated Security=True;TrustServerCertificate=True;");
-            optionsBuilder.UseSqlServer("Server=DESKTOP-ODRGO5F\\SQLEXPRESS;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
+             optionsBuilder.UseSqlServer("Server=BILGIISLEM3;initial Catalog=CarBookDb;Integrated Security=True;TrustServerCertificate=True;");
+            //optionsBuilder.UseSqlServer("Server=DESKTOP-ODRGO5F\\SQLEXPRESS;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
         }
         public DbSet<About> About { get; set; }
         public DbSet<Banner> Banners { get; set; }
@@ -40,8 +41,22 @@ namespace CarBook.Persistance.Context
         public DbSet<TagCloud> TagClouds { get; set; }
         public DbSet<Comment> Comments  { get; set; }
         public DbSet<RentACar> RentACars { get; set; }
-      
+        public DbSet<Reservation> Reservations { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Reservation>()
+               .HasOne(x => x.PickUpLocation)
+               .WithMany(y => y.PickUpReservation)
+               .HasForeignKey(z => z.PickUpLocationId)
+               .OnDelete(DeleteBehavior.ClientSetNull);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(x => x.DropOffLocation)
+                .WithMany(y => y.DropOffReservation)
+                .HasForeignKey(z => z.DropOffLocationId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        } 
 
 
     }
