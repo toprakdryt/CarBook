@@ -24,7 +24,7 @@ namespace UdemyCarBook.WebUI.ViewComponents.BlogsViewComponents
                 var values = JsonConvert.DeserializeObject<GetBlogById>(jsonData);
                 return View(values);
             }
-            return View();
+           return View();
         }
     }
 }
