@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarBook.Application.Features.Mediator.Commands.CarFeatureCommands
 {
-    internal class CreateCarFeatureByCarCommand : IRequest
+    public class CreateCarFeatureByCarCommand : IRequest
     {
         public int CarID { get; set; }
         public int FeatureID { get; set; }

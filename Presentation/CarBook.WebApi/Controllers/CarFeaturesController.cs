@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CarBook.Application.Features.Mediator.Commands.CarFeatureCommands;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UdemyCarBook.Application.Features.Mediator.Commands.CarFeatureCommands;
@@ -34,7 +35,12 @@ namespace UdemyCarBook.WebApi.Controllers
             _mediator.Send(new UpdateCarFeatureAvailableChangeToTrueCommand(id));
             return Ok("Güncelleme Yapıldı");
         }
-
+        [HttpPost]
+        public async Task<IActionResult> CreateCarFeatureByCarID(CreateCarFeatureByCarCommand command)
+        {
+            _mediator.Send(command);
+            return Ok("Ekleme Yapıldı");
+        }
 
     }
 }
