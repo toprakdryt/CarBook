@@ -48,7 +48,7 @@ namespace UdemyCarBook.WebUI.Controllers
         }
         [HttpPost]
         public async Task<IActionResult> CreateCar(CreateCarDto createCarDto)
-        {   
+        {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(createCarDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -107,6 +107,9 @@ namespace UdemyCarBook.WebUI.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+
         }
+        
+        
     }
 }

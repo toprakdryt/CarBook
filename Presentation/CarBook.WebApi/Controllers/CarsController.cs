@@ -1,13 +1,8 @@
 ﻿using CarBook.Application.Features.CQRS.Commands.CarCommands;
-using CarBook.Application.Features.CQRS.Handlers.AboutHandlers;
-using CarBook.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Handlers.CarHandlers;
 using CarBook.Application.Features.CQRS.Queries.CarQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using UdemyCarBook.Application.Features.Mediator.Queries.StatisticsQueries;
-
 namespace CarBook.WebApi.Controllers
 {
     [Route("api/[controller]")]
