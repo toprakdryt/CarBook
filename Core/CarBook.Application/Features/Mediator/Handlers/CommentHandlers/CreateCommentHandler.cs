@@ -27,7 +27,7 @@ namespace UdemyCarBook.Application.Features.Mediator.Handlers.CommentHandlers
                 BlogID = request.BlogID,
                 CreatedDate = DateTime.Parse(DateTime.Now.ToShortDateString()),
                 Name = request.Name,
-                Email = request.Email
+                //Email = request.Email  //Gelinecekkk
 
             });
         }

@@ -12,7 +12,7 @@ namespace UdemyCarbook.Domain.Entities
         public string Name { get; set; }
         public DateTime CreatedDate { get; set; }
         public string Desciption { get; set; }
-        public string Email { get; set; }
+        //public string Email { get; set; } //Gelinecekk
         public int BlogID { get; set; }
         public Blog Blog { get; set; }
 

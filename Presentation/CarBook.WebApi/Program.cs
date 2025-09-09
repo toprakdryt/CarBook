@@ -24,6 +24,8 @@ using CarBook.Persistance.Repositories.CarRepositories;
 using CarBook.Persistance.Repositories.CommentRepositories;
 using CarBook.Persistance.Repositories.TagCloudRepositories;
 using UdemyCarbook.Domain.Entities;
+using UdemyCarBook.Application.Interfaces.CarDescriptionInterfaces;
+using UdemyCarBook.Persistence.Repositories.CarDescriptionRepositories;
 using UdemyCarBook.Persistence.Repositories.RentACarRepositories;
 using UdemyCarBook.Persistence.Repositories.StatisticsRepositories;
 
@@ -40,6 +42,7 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepositor
 builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepository));
 builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
+builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
 
 
 builder.Services.AddScoped<GetAboutQueryHandler>();

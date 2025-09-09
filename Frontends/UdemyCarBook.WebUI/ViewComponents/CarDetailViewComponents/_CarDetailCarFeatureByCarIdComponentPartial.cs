@@ -1,30 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using UdemyCarBook.Dto.BlogDtos;
+using UdemyCarBook.Dto.CarFeatureDtos;
 
-namespace UdemyCarBook.WebUI.ViewComponents.BlogsViewComponents
+namespace UdemyCarBook.WebUI.ViewComponents.CarDetailViewComponents
 {
-    public class _BlogDetailsMainComponentPartial:ViewComponent
+    public class _CarDetailCarFeatureByCarIdComponentPartial : ViewComponent
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public _BlogDetailsMainComponentPartial(IHttpClientFactory httpClientFactory)
+        public _CarDetailCarFeatureByCarIdComponentPartial(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
-
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
+            ViewBag.carid = id;
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync($"https://localhost:7212/api/Blogs/" + id);
-
+            var responseMessage = await client.GetAsync("https://localhost:7212/api/CarFeatures?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<GetBlogById>(jsonData); //Gelinecekkk
+                var values = JsonConvert.DeserializeObject<List<ResultCarFeatureByCarIdDto>>(jsonData);
                 return View(values);
             }
-           return View();
+            return View();
         }
     }
 }
