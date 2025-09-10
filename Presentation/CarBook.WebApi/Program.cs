@@ -12,6 +12,7 @@ using CarBook.Application.Interfaces.CarFeatureInterFaces;
 using CarBook.Application.Interfaces.CarInterFaces;
 using CarBook.Application.Interfaces.CarPricingInterFaces;
 using CarBook.Application.Interfaces.RentACarInterFaces;
+using CarBook.Application.Interfaces.ReviewInterfaces;
 using CarBook.Application.Interfaces.StatisticsInterFaces;
 using CarBook.Application.Interfaces.TagCloudInterFaces;
 using CarBook.Application.Services;
@@ -23,6 +24,9 @@ using CarBook.Persistance.Repositories.CarPricingRepositories;
 using CarBook.Persistance.Repositories.CarRepositories;
 using CarBook.Persistance.Repositories.CommentRepositories;
 using CarBook.Persistance.Repositories.TagCloudRepositories;
+using CarBook.Persistence.Repositories.ReviewRepositories;
+using FluentValidation.AspNetCore;
+using System.Reflection;
 using UdemyCarbook.Domain.Entities;
 using UdemyCarBook.Application.Interfaces.CarDescriptionInterfaces;
 using UdemyCarBook.Persistence.Repositories.CarDescriptionRepositories;
@@ -43,6 +47,8 @@ builder.Services.AddScoped(typeof(IStatisticsRepository), typeof(StatisticsRepos
 builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepository));
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
+builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
+
 
 
 builder.Services.AddScoped<GetAboutQueryHandler>();
@@ -85,7 +91,13 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
-builder.Services.AddControllers();
+
+builder.Services.AddControllers().AddFluentValidation(x =>
+{
+    x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
