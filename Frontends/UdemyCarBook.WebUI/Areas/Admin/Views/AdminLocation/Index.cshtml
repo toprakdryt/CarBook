@@ -26,7 +26,7 @@
                                         <th>Lokasyon</th>
                                         <th>Sil</th>
                                         <th>Güncelle</th>
-                                        <th>Konumu Aç</th>
+                                        @* <th>Konumu Aç</th> *@
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,7 +38,7 @@
                                             <td>@item.Name</td>
                                             <td><a href="/Admin/AdminLocation/RemoveLocation/@item.LocationID" class="btn btn-outline-danger">Sil</a></td>
                                             <td><a href="/Admin/AdminLocation/UpdateLocation/@item.LocationID" class="btn btn-outline-success">Güncelle</a></td>
-                                            <td><a href="/Admin/AdminLocation/LocationDetail/@item.LocationID" class="btn btn-outline-dark">Konumu Aç</a></td>
+                                   @*          <td><a href="/Admin/AdminLocation/LocationDetail/@item.LocationID" class="btn btn-outline-dark">Konumu Aç</a></td> *@
                                         </tr>
                                     }
                                 </tbody>

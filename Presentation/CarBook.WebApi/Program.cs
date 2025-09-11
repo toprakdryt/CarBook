@@ -26,6 +26,7 @@ using CarBook.Persistance.Repositories.CarRepositories;
 using CarBook.Persistance.Repositories.CommentRepositories;
 using CarBook.Persistance.Repositories.TagCloudRepositories;
 using CarBook.Persistence.Repositories.ReviewRepositories;
+using CarBook.WebApi.Hubs;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -38,6 +39,19 @@ using UdemyCarBook.Persistence.Repositories.RentACarRepositories;
 using UdemyCarBook.Persistence.Repositories.StatisticsRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpClient();
+
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("CorsPolicy", builder =>
+    {
+        builder.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    });
+});
+builder.Services.AddSignalR();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
@@ -128,11 +142,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<CarHub>("/carhub");
 
 app.Run();
