@@ -13,7 +13,7 @@ namespace CarBook.Application.Dtos
             Token = token;
             ExpireDate = expireDate;
         }
-
+        //s
         public string Token { get; set; }
         public DateTime ExpireDate { get; set; }
     }
